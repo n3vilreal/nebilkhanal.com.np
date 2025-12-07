@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,5 +29,172 @@
     <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1ZQGNfUsuE3ks0TbzOWfV2?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/7ouS63cGMzAiIUKNdy7YwC?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/23xOLfwyxqMbVFLEC32dY6?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</body>
+</html> -->
+
+
+a<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MeowGPT</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #212121;
+        color: #e5e7eb;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .header {
+        background-color: #111111;
+        padding: 15px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: #fff;
+        border-bottom: 1px solid #333;
+    }
+
+    .chat-container {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+    }
+
+    .message-row {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+    }
+
+    .avatar {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .message {
+        max-width: 70%;
+        padding: 12px 16px;
+        border-radius: 12px;
+        line-height: 1.4;
+        white-space: pre-wrap;
+    }
+
+    .user {
+        background-color: #10a37f;
+        color: white;
+        margin-left: auto;
+    }
+
+    .bot {
+        background-color: #2d2d2d;
+        color: #e5e7eb;
+    }
+
+    .typing {
+        opacity: 0.6;
+        font-style: italic;
+    }
+
+    .input-area {
+        display: flex;
+        padding: 15px;
+        background-color: #111111;
+        border-top: 1px solid #333;
+    }
+
+    .input-area input {
+        flex: 1;
+        padding: 12px;
+        border-radius: 8px;
+        border: none;
+        background-color: #2d2d2d;
+        color: #fff;
+        font-size: 16px;
+    }
+
+    .input-area button {
+        margin-left: 10px;
+        padding: 12px 20px;
+        background-color: #10a37f;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <div class="header">MeowGPT</div>
+
+    <div class="chat-container" id="chat"></div>
+
+    <div class="input-area">
+        <input type="text" id="input" placeholder="Ask something..." onkeydown="if(event.key==='Enter') sendMessage()" />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+<script>
+function generateMeowText(wordCount) {
+    let variations = ["meow", "meoow", "meeow", "meooow", "meoww", "meowwww", "meeooow"];    
+    let response = [];
+    for (let i = 0; i < wordCount * 10; i++) {
+        let v = variations[Math.floor(Math.random() * variations.length)];
+        response.push(v);
+    }
+    return response.join(" ");
+}
+
+function sendMessage() {
+    const input = document.getElementById("input");
+    const chat = document.getElementById("chat");
+    let text = input.value.trim();
+    if (text === "") return;
+
+    // Add user message
+    chat.innerHTML += `
+        <div class="message-row" style="justify-content: flex-end;">
+            <div class="message user">${text}</div>
+        </div>
+    `;
+
+    let wordCount = text.split(/\s+/).length;
+    let meowReply = generateMeowText(wordCount);
+
+    // Add typing indicator with avatar
+    const typingId = "typing-" + Date.now();
+    chat.innerHTML += `
+        <div class="message-row" id="${typingId}">
+            <img class="avatar" src="https://i.imgur.com/1X4qCkT.png" />
+            <div class="message bot typing">Typing...</div>
+        </div>
+    `;
+
+    chat.scrollTop = chat.scrollHeight;
+    input.value = "";
+
+    // Replace typing with meow reply after 1 second
+    setTimeout(() => {
+        const typingBox = document.getElementById(typingId);
+        if (typingBox) {
+            typingBox.outerHTML = `
+                <div class="message-row">
+                    <img class="avatar" src="https://i.imgur.com/1X4qCkT.png" />
+                    <div class="message bot">${meowReply}</div>
+                </div>
+            `;
+        }
+        chat.scrollTop = chat.scrollHeight;
+    }, 1000);
+}
+</script>
 </body>
 </html>
