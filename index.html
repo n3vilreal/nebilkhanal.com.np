@@ -1,86 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nebil Khanal</title>
-    <style>
-        *{
-            margin: 0;
-            text-decoration: none;
-        }
-        header{
-            display: flex;
-            width: 100vw;
-            align-items: center;
-            justify-content: center;
-        }
-        nav{
-            display: flex;
-            width: 100%;
-            justify-content: space-around;
-            font-size: 20px;
-            padding-top: 20px;
-        }
-        a{
-            color: black;
-        }
-        #main{
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-        }
-        #info{
-            height: 100%;
-            width: 60%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        footer{
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 15px;
-        }
-        img{
-            height: 500px;
-        }
-        #photo{
-            display: flex;
-            align-items: center;
-        }
-        #name{
-            font-size: 60px;
-            font-weight: bold;
-        }
-        #role{
-            font-size: 40px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ONE</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 35px;
+    }
+
+    .text {
+      max-width: 850px;
+
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      line-height: 1.7;
+      text-align: center;
+      font-weight: 400;
+
+      /* Constant shiny gold */
+      background: linear-gradient(
+        180deg,
+        #9c791f 0%,
+        #d4af37 20%,
+        #f9e79a 42%,
+        #d4af37 58%,
+        #b38b24 80%,
+        #e2c45c 100%
+      );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+
+      /* Very subtle permanent glow */
+      filter: drop-shadow(0 0 3px rgba(212, 175, 55, 0.25));
+    }
+
+    .text a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 22px;
+      }
+
+      .text {
+        font-size: 11px;
+        line-height: 1.65;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <nav>
-            <a href="">Home</a>
-            <a href="">About</a>
-            <a href="">Contact</a>
-            <a href="">Resume</a>
-        </nav>
-    </header>
-    <div id="main">
-        <div id="info">
-            <span id="name">Nebil Khanal</span>
-            <span id="role">Frontend Developer</span>            
-        </div>
-        <div id="photo">
-            <img src="photo.png" alt="">
-        </div>
-    </div>
-    <footer>
-        THANK YOU, COME AGAIN
-    </footer>
+
+  <div class="text">
+    It is impossible for a
+    <a href="https://www.thefreedictionary.com/decerebrated" target="_blank">
+      decerebrated
+    </a>
+    individual to experience pain, pleasure, memory, dreams or thoughts of any kind.
+    Therefore, this young man will be as unthinking, as unfeeling as the dead until the day he joins them.
+    <br><br>
+    Don't know whether I'm alive and dreaming or dead and remembering.
+    How can you tell what's a dream and what's real when you can't even tell when you're awake and when you're asleep?
+    Where am I?
+  </div>
+
 </body>
 </html>
